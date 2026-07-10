@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion Request - Nikah Matrimony</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            max-width: 500px;
+            width: 100%;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        h1 {
+            color: #c2185b;
+            font-size: 24px;
+            margin-top: 0;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #515154;
+        }
+        .warning-box {
+            background-color: #fff3f3;
+            border-left: 4px solid #d32f2f;
+            padding: 12px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .warning-box p {
+            color: #d32f2f;
+            margin: 0;
+            font-weight: 500;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        input[type="email"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d2d2d7;
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        input[type="email"]:focus, select:focus {
+            outline: none;
+            border-color: #c2185b;
+        }
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .checkbox-group input {
+            margin-top: 3px;
+        }
+        .checkbox-group label {
+            font-weight: normal;
+            font-size: 13px;
+            color: #515154;
+        }
+        button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Account Deletion Portal</h1>
+    <p>You can request the permanent deletion of your Nikah Matrimony app account and all associated user data here without needing to reinstall the application.</p>
+    
+    <div class="warning-box">
+        <p>Warning: This action is permanent. Once completed, your profile rows, interaction matching matches, conversation logs, and uploaded media photos will be completely purged from our servers.</p>
+    </div>
+
+    <form id="deletionForm" onsubmit="handleDeletionSubmit(event)">
+        <div class="form-group">
+            <label for="userEmail">Registered Email Address:</label>
+            <input type="email" id="userEmail" required placeholder="Enter your registered email">
+        </div>
+
+        <div class="form-group">
+            <label for="reason">Reason for Deletion:</label>
+            <select id="reason" required>
+                <option value="">-- Select a reason --</option>
+                <option value="found_match">Found a match through the app</option>
+                <option value="found_elsewhere">Found a match elsewhere</option>
+                <option value="privacy_concerns">Privacy concerns</option>
+                <option value="technical_issues">App technical performance issues</option>
+                <option value="other">Other reason</option>
+            </select>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="confirmCheck" required>
+            <label for="confirmCheck">I explicitly acknowledge that this request will permanently remove my account records after identity verification.</label>
+        </div>
+
+        <button type="submit">Submit Deletion Request</button>
+    </form>
+</div>
+
+<script>
+    function handleDeletionSubmit(event) {
+        event.preventDefault();
+        
+        var email = document.getElementById('userEmail').value.trim();
+        var reason = document.getElementById('reason').value;
+        
+        var subject = encodeURIComponent("Nikah Matrimony Account Deletion Request");
+        var body = encodeURIComponent(
+            "Hello Support Team,\n\n" +
+            "I am formally requesting the permanent deletion of my account and all associated data under the Google Play User Data Policy.\n\n" +
+            "Account Email: " + email + "\n" +
+            "Reason for leaving: " + reason + "\n\n" +
+            "Please process this removal request and clear my profile photos and server data assets within the compliance grace period.\n\n" +
+            "Thank you."
+        );
+        
+        window.location.href = "mailto:maniyarent786@gmail.com?subject=" + subject + "&body=" + body;
+    }
+</script>
+
+</body>
+</html>
